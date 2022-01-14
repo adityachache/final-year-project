@@ -29,7 +29,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pydub
 from aiortc.contrib.media import MediaPlayer
-
+import streamlit_webrtc
 from streamlit_webrtc import AudioProcessorBase, RTCConfiguration, VideoProcessorBase, WebRtcMode, webrtc_streamer
 
     
@@ -330,33 +330,6 @@ def app():
         
     def work_flow():
         st.title("Now How does YOLO Work?")
-        image1 = Image.open("pages/pic1.jpg")
-        st.image(image1,use_column_width=True)
-
-        st.subheader("What is YOLO?")
-        st.write("""YOLO stands for You Only Look Once.
-
-        It's an object detector that uses features learned by a deep convolutional neural network to detect an object. """)
-       
-        st.write("""YOLO makes use of only convolutional layers, making it a fully convolutional network (FCN). It has 75 convolutional layers, with skip connections and upsampling layers. No form of pooling is used, and a convolutional layer with stride 2 is used to downsample the feature maps. This helps in preventing loss of low-level features often attributed to pooling.
-
-                    Being a FCN, YOLO is invariant to the size of the input image. However, in practice, we might want to stick to a constant input size due to various problems that only show their heads when we are implementing the algorithm.
-
-                    A big one amongst these problems is that if we want to process our images in batches (images in batches can be processed in parallel by the GPU, leading to speed boosts), we need to have all images of fixed height and width. This is needed to concatenate multiple images into a large batch""")
-
-        st.subheader("How it Works?")
-
-        image2 = Image.open("pages/pic2.jpg")
-
-        st.image(image2,use_column_width=True)
-
-        st.write("""The cell containing the center of the ground truth box of an object is chosen to be the one responsible for predicting the object. In the image, it is the cell which marked red, which contains the center of the ground truth box (marked yellow).""")
-
-        st.write("To increase the accuracy we can increase the grid size as shown which in turn is able to detect minute objects as well")
-
-        image3 = Image.open("pages/pic3.jpg")
-
-        st.image(image3,use_column_width=True) 
 
 
     st.sidebar.title("What to do")
