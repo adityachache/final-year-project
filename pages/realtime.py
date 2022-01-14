@@ -1,8 +1,6 @@
 
 #importing required libraries
-import streamlit as st
 import pandas as pd
-import numpy as np
 import PIL.Image as Image
 import tensorflow as tf
 import tensorflow_hub as hub
@@ -23,7 +21,6 @@ except ImportError:
     from typing_extensions import Literal  # type: ignore
 
 import av
-import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 import pydub
@@ -352,8 +349,8 @@ def app():
     if app_mode == "Work Flow":
         work_flow()
         
-        logger.debug("=== Alive threads ===")
-        for thread in threading.enumerate():
-            if thread.is_alive():
-                logger.debug(f"  {thread.name} ({thread.ident})")
+        # logger.debug("=== Alive threads ===")
+        # for thread in threading.enumerate():
+        #     if thread.is_alive():
+        #         logger.debug(f"  {thread.name} ({thread.ident})")
 
