@@ -116,15 +116,15 @@ def app():
             whT = 320
             #### LOAD MODEL
             ## Coco Names
-            classesFile = "E:/project/final/image-processing-101/pages/coco.names"
+            classesFile = "pages/coco.names"
             classNames = []
             with open(classesFile, 'rt') as f:
                 classNames = f.read().split('\n')
                 
             
             ## Model Files        
-            modelConfiguration = "E:/project/final/image-processing-101/pages/yolov3.cfg"
-            modelWeights = "E:/project/final/image-processing-101/pages/yolov3.weights"
+            modelConfiguration = "pages/yolov3-tiny.cfg"
+            modelWeights = "pages/yolov3-tiny.weights"
             net = cv2.dnn.readNetFromDarknet(modelConfiguration, modelWeights)
             net.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
             net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
@@ -333,6 +333,7 @@ def app():
         st.markdown("!!!"
         )
         
+
     def work_flow():
         st.write("")
 
