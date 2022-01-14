@@ -22,17 +22,22 @@ try:
 except ImportError:
     from typing_extensions import Literal  # type: ignore
 
-    
 import av
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 import pydub
+import streamlit as st
 from aiortc.contrib.media import MediaPlayer
-import streamlit_webrtc
-from streamlit_webrtc import AudioProcessorBase, RTCConfiguration, VideoProcessorBase, WebRtcMode, webrtc_streamer
 
-    
+from streamlit_webrtc import (
+    AudioProcessorBase,
+    RTCConfiguration,
+    VideoProcessorBase,
+    WebRtcMode,
+    webrtc_streamer,
+)
+
 HERE = Path(__file__).parent
 
 logger = logging.getLogger(__name__)
@@ -111,15 +116,15 @@ def app():
             whT = 320
             #### LOAD MODEL
             ## Coco Names
-            classesFile = "pages/coco.names"
+            classesFile = "E:/project/final/image-processing-101/pages/coco.names"
             classNames = []
             with open(classesFile, 'rt') as f:
                 classNames = f.read().split('\n')
                 
             
             ## Model Files        
-            modelConfiguration = "pages/yolov3-tiny.cfg"
-            modelWeights = "pages/yolov3-tiny.weights"
+            modelConfiguration = "E:/project/final/image-processing-101/pages/yolov3.cfg"
+            modelWeights = "E:/project/final/image-processing-101/pages/yolov3.weights"
             net = cv2.dnn.readNetFromDarknet(modelConfiguration, modelWeights)
             net.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
             net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
@@ -147,7 +152,7 @@ def app():
                 confi_list =[]
                 #drawing rectangle around object
                 for i in indices:
-                    # i = i[0]
+                    i = i[0]
                     box = bbox[i]
                     x, y, w, h = box[0], box[1], box[2], box[3]
                     # print(x,y,w,h)
@@ -170,15 +175,15 @@ def app():
             blob = cv2.dnn.blobFromImage(image2, 1 / 255, (whT, whT), [0, 0, 0], 1, crop=False)
             net.setInput(blob)
             layersNames = net.getLayerNames()
-            outputNames = [(layersNames[i - 1]) for i in net.getUnconnectedOutLayers()]
+            outputNames = [(layersNames[i[0] - 1]) for i in net.getUnconnectedOutLayers()]
             outputs = net.forward(outputNames)
             findObjects(outputs,image2)
         
             st.image(image2, caption='Proccesed Image.')
             
-            # cv2.waitKey(0)
+            cv2.waitKey(0)
             
-            # cv2.destroyAllWindows()
+            cv2.destroyAllWindows()
             my_bar.progress(100)
             
             
@@ -194,9 +199,9 @@ def app():
         """Object detection demo with MobileNet SSD.
         """
         MODEL_URL = "https://github.com/robmarkcole/object-detection-app/raw/master/model/MobileNetSSD_deploy.caffemodel"  # noqa: E501
-        MODEL_LOCAL_PATH = HERE / "pages/models/MobileNetSSD_deploy.caffemodel"
+        MODEL_LOCAL_PATH = HERE / "./models/MobileNetSSD_deploy.caffemodel"
         PROTOTXT_URL = "https://github.com/robmarkcole/object-detection-app/raw/master/model/MobileNetSSD_deploy.prototxt.txt"  # noqa: E501
-        PROTOTXT_LOCAL_PATH = HERE / "pages/models/MobileNetSSD_deploy.prototxt.txt"
+        PROTOTXT_LOCAL_PATH = HERE / "./models/MobileNetSSD_deploy.prototxt.txt"
 
         CLASSES = [
             "background",
@@ -226,7 +231,7 @@ def app():
         download_file(MODEL_URL, MODEL_LOCAL_PATH, expected_size=23147564)
         download_file(PROTOTXT_URL, PROTOTXT_LOCAL_PATH, expected_size=29353)
 
-        DEFAULT_CONFIDENCE_THRESHOLD = 0.3
+        DEFAULT_CONFIDENCE_THRESHOLD = 0.5
 
         class Detection(NamedTuple):
             name: str
@@ -329,7 +334,8 @@ def app():
         )
         
     def work_flow():
-        st.title("Now How does YOLO Work?")
+        st.write("")
+
 
 
     st.sidebar.title("What to do")
