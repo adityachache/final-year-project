@@ -196,9 +196,9 @@ def app():
         """Object detection demo with MobileNet SSD.
         """
         MODEL_URL = "https://github.com/robmarkcole/object-detection-app/raw/master/model/MobileNetSSD_deploy.caffemodel"  # noqa: E501
-        MODEL_LOCAL_PATH = HERE / "./models/MobileNetSSD_deploy.caffemodel"
+        MODEL_LOCAL_PATH = HERE / "models/MobileNetSSD_deploy.caffemodel"
         PROTOTXT_URL = "https://github.com/robmarkcole/object-detection-app/raw/master/model/MobileNetSSD_deploy.prototxt.txt"  # noqa: E501
-        PROTOTXT_LOCAL_PATH = HERE / "./models/MobileNetSSD_deploy.prototxt.txt"
+        PROTOTXT_LOCAL_PATH = HERE / "models/MobileNetSSD_deploy.prototxt.txt"
 
         CLASSES = [
             "background",
