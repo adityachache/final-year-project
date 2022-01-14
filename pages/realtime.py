@@ -149,7 +149,7 @@ def app():
                 confi_list =[]
                 #drawing rectangle around object
                 for i in indices:
-                    i = i[0]
+                    # i = i[0]
                     box = bbox[i]
                     x, y, w, h = box[0], box[1], box[2], box[3]
                     # print(x,y,w,h)
@@ -172,15 +172,15 @@ def app():
             blob = cv2.dnn.blobFromImage(image2, 1 / 255, (whT, whT), [0, 0, 0], 1, crop=False)
             net.setInput(blob)
             layersNames = net.getLayerNames()
-            outputNames = [(layersNames[i[0] - 1]) for i in net.getUnconnectedOutLayers()]
+            outputNames = [(layersNames[i - 1]) for i in net.getUnconnectedOutLayers()]
             outputs = net.forward(outputNames)
             findObjects(outputs,image2)
         
             st.image(image2, caption='Proccesed Image.')
             
-            cv2.waitKey(0)
+            # cv2.waitKey(0)
             
-            cv2.destroyAllWindows()
+            # cv2.destroyAllWindows()
             my_bar.progress(100)
             
             
