@@ -2,7 +2,7 @@ av
 opencv_python_headless
 scipy
 numpy
-streamlit
+streamlit==1.3.1
 tensorflow_hub
 pydub
 pandas
