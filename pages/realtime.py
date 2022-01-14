@@ -21,9 +21,6 @@ try:
     from typing import Literal
 except ImportError:
     from typing_extensions import Literal  # type: ignore
-    
-import streamlit.ReportThread as ReportThread
-from streamlit.server.Server import Server
 
 import av
 import cv2
