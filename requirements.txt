@@ -1,0 +1,15 @@
+scipy
+typing_extensions
+tensorflow_hub
+numpy
+streamlit
+matplotlib
+pydub
+opencv_python_headless
+aiortc
+pandas
+tensorflow
+av
+Pillow
+scikit-image
+streamlit_webrtc
