@@ -336,7 +336,7 @@ def app():
         
     def work_flow():
         st.title("Now How does YOLO Work?")
-        image1 = Image.open("pic1.jpg")
+        image1 = Image.open("pages/pic1.jpg")
         st.image(image1,use_column_width=True)
 
         st.subheader("What is YOLO?")
@@ -352,7 +352,7 @@ def app():
 
         st.subheader("How it Works?")
 
-        image2 = Image.open("pic2.jpg")
+        image2 = Image.open("pages/pic2.jpg")
 
         st.image(image2,use_column_width=True)
 
@@ -360,7 +360,7 @@ def app():
 
         st.write("To increase the accuracy we can increase the grid size as shown which in turn is able to detect minute objects as well")
 
-        image3 = Image.open("pic3.jpg")
+        image3 = Image.open("pages/pic3.jpg")
 
         st.image(image3,use_column_width=True) 
 
