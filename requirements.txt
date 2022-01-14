@@ -3,7 +3,7 @@ aiortc
 av
 tensorflow
 pydub
-streamlit==0.65.0
+streamlit
 numpy
 typing_extensions
 matplotlib
