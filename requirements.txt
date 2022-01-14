@@ -1,10 +1,10 @@
 tensorflow
 streamlit
 tensorflow_hub
-matplotlib=
+matplotlib
 numpy
 scipy
-av==8.0.3
+av
 typing_extensions
 pandas
 opencv_python_headless
