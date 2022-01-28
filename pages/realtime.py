@@ -6,6 +6,8 @@ import tensorflow as tf
 import tensorflow_hub as hub
 import cv2
 import urllib
+from PIL import Image
+
 
 import asyncio
 import logging
@@ -120,8 +122,8 @@ def app():
                 
             
             ## Model Files        
-            modelConfiguration = "pages/yolov3-tiny.cfg"
-            modelWeights = "pages/yolov3-tiny.weights"
+            modelConfiguration = "pages/yolov4-tiny.cfg"
+            modelWeights = "pages/yolov4-tiny.weights"
             net = cv2.dnn.readNetFromDarknet(modelConfiguration, modelWeights)
             net.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
             net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
@@ -367,7 +369,7 @@ def app():
 
     st.sidebar.title("What to do")
     app_mode = st.sidebar.selectbox("Choose the app mode",
-            ["Object detection-Images","Real Time Detection","Work Flow"])
+            ["Object detection-Images","Real Time Detection", "Work Flow"])
      
     if app_mode == "Object detection-Images":
         obj_detection()
