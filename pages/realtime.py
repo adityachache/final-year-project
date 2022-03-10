@@ -190,7 +190,7 @@ def app():
     def app_object_detection():
         
         
-        st.title('Object Detection-Images')
+        st.title('Object Detection Real Time')
         st.subheader("This app takes the input from your webcam or video streaming device and detects objects in real time.")
         
         st.write("Select your Device for Video Streaming and Adjust Threshold Value as per need.")
